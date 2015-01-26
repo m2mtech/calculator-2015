@@ -13,6 +13,7 @@
 		5B83AB911A76819000D713E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B83AB901A76819000D713E5 /* Images.xcassets */; };
 		5B83AB941A76819000D713E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B83AB921A76819000D713E5 /* LaunchScreen.xib */; };
 		5B83ABA01A76819000D713E5 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B83AB9F1A76819000D713E5 /* CalculatorTests.swift */; };
+		5B83ABAA1A76945A00D713E5 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5B83ABA91A76945A00D713E5 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		5B83AB991A76819000D713E5 /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B83AB9E1A76819000D713E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B83AB9F1A76819000D713E5 /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
+		5B83ABA91A76945A00D713E5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		5B83AB7B1A76819000D713E5 = {
 			isa = PBXGroup;
 			children = (
+				5B83ABA91A76945A00D713E5 /* README.md */,
 				5B83AB861A76819000D713E5 /* Calculator */,
 				5B83AB9C1A76819000D713E5 /* CalculatorTests */,
 				5B83AB851A76819000D713E5 /* Products */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B83ABAA1A76945A00D713E5 /* README.md in Sources */,
 				5B83AB8C1A76819000D713E5 /* ViewController.swift in Sources */,
 				5B83AB8A1A76819000D713E5 /* AppDelegate.swift in Sources */,
 			);
