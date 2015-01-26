@@ -8,18 +8,25 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
+    @IBOutlet weak var display: UILabel!
+    
+    var userIsInTheMiddleOfTypingANumber: Bool = false
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBAction func appendDigit(sender: UIButton)
+    {
+        let digit = sender.currentTitle!
+        //println("digit = \(digit)");
+        
+        if userIsInTheMiddleOfTypingANumber {
+            display.text = display.text! + digit
+        } else {
+            display.text = digit
+            userIsInTheMiddleOfTypingANumber = true
+        }
+        
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
