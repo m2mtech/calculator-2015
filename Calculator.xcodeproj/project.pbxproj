@@ -13,7 +13,6 @@
 		5B83AB911A76819000D713E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B83AB901A76819000D713E5 /* Images.xcassets */; };
 		5B83AB941A76819000D713E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B83AB921A76819000D713E5 /* LaunchScreen.xib */; };
 		5B83ABA01A76819000D713E5 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B83AB9F1A76819000D713E5 /* CalculatorTests.swift */; };
-		5B83ABAA1A76945A00D713E5 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5B83ABA91A76945A00D713E5 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,7 +214,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B83ABAA1A76945A00D713E5 /* README.md in Sources */,
 				5B83AB8C1A76819000D713E5 /* ViewController.swift in Sources */,
 				5B83AB8A1A76819000D713E5 /* AppDelegate.swift in Sources */,
 			);
