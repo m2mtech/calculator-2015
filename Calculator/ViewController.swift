@@ -23,9 +23,13 @@ class ViewController: UIViewController
         
         if userIsInTheMiddleOfTypingANumber {
             if (digit == ".") && (display.text!.rangeOfString(".") != nil) { return }
-            if (digit == "0") && (display.text == "0") { return }
-            if (digit != ".") && (display.text == "0") {
-                display.text = digit
+            if (digit == "0") && ((display.text == "0") || (display.text == "-0")) { return }
+            if (digit != ".") && ((display.text == "0") || (display.text == "-0")) {
+                if (display.text == "0") {
+                    display.text = digit
+                } else {
+                    display.text = "-" + digit
+                }
             } else {
                 display.text = display.text! + digit
             }
@@ -41,10 +45,19 @@ class ViewController: UIViewController
     }
     
     @IBAction func operate(sender: UIButton) {
-        if userIsInTheMiddleOfTypingANumber {
-            enter()
-        }
         if let operation = sender.currentTitle {
+            if userIsInTheMiddleOfTypingANumber {
+                if operation == "±" {
+                    let displayText = display.text!
+                    if (displayText.rangeOfString("-") != nil) {
+                        display.text = dropFirst(displayText)
+                    } else {
+                        display.text = "-" + displayText
+                    }
+                    return
+                }
+                enter()
+            }
             if let result = brain.performOperation(operation) {
                 displayValue = result
             } else {
@@ -75,6 +88,9 @@ class ViewController: UIViewController
             let displayText = display.text!
             if countElements(displayText) > 1 {
                 display.text = dropLast(displayText)
+                if (countElements(displayText) == 2) && (display.text?.rangeOfString("-") != nil) {
+                    display.text = "-0"
+                }
             } else {
                 display.text = "0"
             }
