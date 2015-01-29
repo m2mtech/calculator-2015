@@ -62,24 +62,24 @@ class ViewController: UIViewController
                 displayValue = result
             } else {
                 // error?
-                displayValue = 0
+                displayValue = nil
             }
         }
     }
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
-        if let result = brain.pushOperand(displayValue) {
+        if let result = brain.pushOperand(displayValue!) {
             displayValue = result
         } else {
             // error?
-            displayValue = 0
+            displayValue = nil
         }
     }
     
     @IBAction func clear() {
         brain = CalculatorBrain()
-        displayValue = 0
+        displayValue = nil
         history.text = ""
     }
     
@@ -97,12 +97,21 @@ class ViewController: UIViewController
         }
     }
     
-    var displayValue: Double {
+    var displayValue: Double? {
         get {
-            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+            if let displayText = display.text {
+                if let displayNumber = NSNumberFormatter().numberFromString(displayText) {
+                    return displayNumber.doubleValue
+                }
+            }
+            return nil
         }
         set {
-            display.text = "\(newValue)"
+            if (newValue != nil) {
+                display.text = "\(newValue)"
+            } else {
+                display.text = "0"
+            }
             userIsInTheMiddleOfTypingANumber = false
             let stack = brain.showStack()
             if !stack!.isEmpty {
