@@ -23,7 +23,12 @@ class ViewController: UIViewController
         
         if userIsInTheMiddleOfTypingANumber {
             if (digit == ".") && (display.text!.rangeOfString(".") != nil) { return }
-            display.text = display.text! + digit
+            if (digit == "0") && (display.text == "0") { return }
+            if (digit != ".") && (display.text == "0") {
+                display.text = digit
+            } else {
+                display.text = display.text! + digit
+            }
         } else {
             if digit == "." {
                 display.text = "0."
@@ -56,6 +61,11 @@ class ViewController: UIViewController
             // error?
             displayValue = 0
         }
+    }
+    
+    @IBAction func clear() {
+        brain = CalculatorBrain()
+        displayValue = 0
     }
     
     var displayValue: Double {
