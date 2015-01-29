@@ -68,6 +68,17 @@ class ViewController: UIViewController
         displayValue = 0
     }
     
+    @IBAction func backSpace() {
+        if userIsInTheMiddleOfTypingANumber {
+            let displayText = display.text!
+            if countElements(displayText) > 1 {
+                display.text = dropLast(displayText)
+            } else {
+                display.text = "0"
+            }
+        }
+    }
+    
     var displayValue: Double {
         get {
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
