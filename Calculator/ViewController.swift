@@ -36,6 +36,7 @@ class ViewController: UIViewController
                 display.text = digit
             }
             userIsInTheMiddleOfTypingANumber = true
+            history.text = brain.showStack()
         }
     }
     
@@ -66,6 +67,7 @@ class ViewController: UIViewController
     @IBAction func clear() {
         brain = CalculatorBrain()
         displayValue = 0
+        history.text = ""
     }
     
     @IBAction func backSpace() {
@@ -86,7 +88,10 @@ class ViewController: UIViewController
         set {
             display.text = "\(newValue)"
             userIsInTheMiddleOfTypingANumber = false
-            history.text = brain.showStack()
+            let stack = brain.showStack()
+            if !stack!.isEmpty {
+                history.text = stack! + " ="
+            }
         }
     }
 }
