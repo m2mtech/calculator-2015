@@ -12,19 +12,26 @@ class ViewController: UIViewController
 {
     @IBOutlet weak var display: UILabel!
     @IBOutlet weak var history: UILabel!
+    @IBOutlet weak var decimalButton: UIButton!
     
     var userIsInTheMiddleOfTypingANumber = false
+    let decimalSeparator = NSNumberFormatter().decimalSeparator!
     
     var brain = CalculatorBrain()
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        decimalButton.setTitle(decimalSeparator, forState: UIControlState.Normal)
+    }
+    
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         //println("digit = \(digit)");
         
         if userIsInTheMiddleOfTypingANumber {
-            if (digit == ".") && (display.text!.rangeOfString(".") != nil) { return }
+            if (digit == decimalSeparator) && (display.text!.rangeOfString(decimalSeparator) != nil) { return }
             if (digit == "0") && ((display.text == "0") || (display.text == "-0")) { return }
-            if (digit != ".") && ((display.text == "0") || (display.text == "-0")) {
+            if (digit != decimalSeparator) && ((display.text == "0") || (display.text == "-0")) {
                 if (display.text == "0") {
                     display.text = digit
                 } else {
@@ -34,8 +41,8 @@ class ViewController: UIViewController
                 display.text = display.text! + digit
             }
         } else {
-            if digit == "." {
-                display.text = "0."
+            if digit == decimalSeparator {
+                display.text = "0" + decimalSeparator
             } else {
                 display.text = digit
             }
@@ -100,7 +107,9 @@ class ViewController: UIViewController
     var displayValue: Double? {
         get {
             if let displayText = display.text {
-                if let displayNumber = NSNumberFormatter().numberFromString(displayText) {
+                let numberFormatter = NSNumberFormatter()
+                //numberFormatter.locale = NSLocale(localeIdentifier: "en_US")
+                if let displayNumber = numberFormatter.numberFromString(displayText) {
                     return displayNumber.doubleValue
                 }
             }
@@ -108,14 +117,17 @@ class ViewController: UIViewController
         }
         set {
             if (newValue != nil) {
-                display.text = "\(newValue!)"
+                let numberFormatter = NSNumberFormatter()
+                numberFormatter.numberStyle = .DecimalStyle
+                numberFormatter.maximumFractionDigits = 10
+                display.text = numberFormatter.stringFromNumber(newValue!)
             } else {
                 display.text = "0"
             }
             userIsInTheMiddleOfTypingANumber = false
             let stack = brain.showStack()
             if !stack!.isEmpty {
-                history.text = stack! + " ="
+                history.text = join(decimalSeparator, stack!.componentsSeparatedByString(".")) + " ="
             }
         }
     }
