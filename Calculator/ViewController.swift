@@ -76,11 +76,13 @@ class ViewController: UIViewController
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
-        if let result = brain.pushOperand(displayValue!) {
-            displayValue = result
-        } else {
-            // error?
-            displayValue = nil
+        if displayValue != nil {
+            if let result = brain.pushOperand(displayValue!) {
+                displayValue = result
+            } else {
+                // error?
+                displayValue = nil
+            }
         }
     }
     
@@ -106,14 +108,7 @@ class ViewController: UIViewController
     
     var displayValue: Double? {
         get {
-            if let displayText = display.text {
-                let numberFormatter = NSNumberFormatter()
-                //numberFormatter.locale = NSLocale(localeIdentifier: "en_US")
-                if let displayNumber = numberFormatter.numberFromString(displayText) {
-                    return displayNumber.doubleValue
-                }
-            }
-            return nil
+            return NSNumberFormatter().numberFromString(display.text!)?.doubleValue
         }
         set {
             if (newValue != nil) {
