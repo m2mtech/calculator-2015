@@ -14,6 +14,7 @@
 		5B83AB911A76819000D713E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B83AB901A76819000D713E5 /* Images.xcassets */; };
 		5B83AB941A76819000D713E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B83AB921A76819000D713E5 /* LaunchScreen.xib */; };
 		5B83ABA01A76819000D713E5 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B83AB9F1A76819000D713E5 /* CalculatorTests.swift */; };
+		5B908F2C1A8FAAB3002BFA3B /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B52A8F71A79022500D6D166 /* CalculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B908F2C1A8FAAB3002BFA3B /* CalculatorBrain.swift in Sources */,
 				5B83ABA01A76819000D713E5 /* CalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

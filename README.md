@@ -5,6 +5,7 @@ written in Xcode 6.1.1 for iOS8.1+
 
 ### various versions are available via branches and tags:
 
++ [Project #2 Assignment #2 Task #5](http://cs193p.m2m.at/cs193p-project-2-assignment-2-task-5-winter-2015/) -> [project2assignment2task5](https://github.com/m2mtech/calculator-2015/tree/project2assignment2task5)
 + [Project #2 Assignment #2 Task #4](http://cs193p.m2m.at/cs193p-project-2-assignment-2-task-4-winter-2015/) -> [project2assignment2task4](https://github.com/m2mtech/calculator-2015/tree/project2assignment2task4)
 
 [End of Lecture #5](http://cs193p.m2m.at/cs193p-lecture-5-objective-c-compatibility-property-list-views-winter-2015/) -> [EndOfLecture5](https://github.com/m2mtech/calculator-2015/tree/EndOfLecture5)
