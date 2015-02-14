@@ -107,7 +107,7 @@ class CalculatorBrain
                     }
                 }
             case .Variable(let symbol):
-                    return (nil, remainingOps)
+                return (variableValues[symbol], remainingOps)
             }
         }
         return (nil, ops)

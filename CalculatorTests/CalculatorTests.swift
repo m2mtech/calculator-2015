@@ -15,6 +15,9 @@ class CalculatorTests: XCTestCase {
         var brain = CalculatorBrain()
         XCTAssertNil(brain.pushOperand("x"))
         XCTAssertEqual(brain.program[0] as String, "x")
+        brain.variableValues = ["x": 3.14]
+        XCTAssertEqual(3.14, brain.pushOperand("x")!)
+        XCTAssertEqual(6.28, brain.performOperation("+")!)
         //println("\(brain.program)")
     }
 }
