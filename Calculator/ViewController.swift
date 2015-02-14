@@ -47,7 +47,7 @@ class ViewController: UIViewController
                 display.text = digit
             }
             userIsInTheMiddleOfTypingANumber = true
-            history.text = brain.showStack()
+            history.text = brain.description != "?" ? brain.description : ""
         }
     }
     
@@ -120,10 +120,7 @@ class ViewController: UIViewController
                 display.text = "0"
             }
             userIsInTheMiddleOfTypingANumber = false
-            let stack = brain.showStack()
-            if !stack!.isEmpty {
-                history.text = join(decimalSeparator, stack!.componentsSeparatedByString(".")) + " ="
-            }
+            history.text = brain.description + " ="
         }
     }
 }

@@ -5,6 +5,7 @@ written in Xcode 6.1.1 for iOS8.1+
 
 ### various versions are available via branches and tags:
 
++ [Project #2 Assignment #2 Task #8](http://cs193p.m2m.at/cs193p-project-2-assignment-2-task-8-winter-2015/) -> [project2assignment2task8](https://github.com/m2mtech/calculator-2015/tree/project2assignment2task8)
 + [Project #2 Assignment #2 Task #7](http://cs193p.m2m.at/cs193p-project-2-assignment-2-task-7-winter-2015/) -> [project2assignment2task7](https://github.com/m2mtech/calculator-2015/tree/project2assignment2task7)
 + [Project #2 Assignment #2 Task #6](http://cs193p.m2m.at/cs193p-project-2-assignment-2-task-6-winter-2015/) -> [project2assignment2task6](https://github.com/m2mtech/calculator-2015/tree/project2assignment2task6)
 + [Project #2 Assignment #2 Task #5](http://cs193p.m2m.at/cs193p-project-2-assignment-2-task-5-winter-2015/) -> [project2assignment2task5](https://github.com/m2mtech/calculator-2015/tree/project2assignment2task5)
