@@ -98,11 +98,11 @@ class CalculatorBrain
     var description: String {
         get {
             var (result, ops) = ("", opStack)
-            do {
+            while ops.count > 0 {
                 var current: String?
                 (current, ops, _) = description(ops)
                 result = result == "" ? current! : "\(current!), \(result)"
-            } while ops.count > 0
+            }
             return result
         }
     }
@@ -190,6 +190,13 @@ class CalculatorBrain
     
     func pushOperand(symbol: String) -> Double? {
         opStack.append(Op.Variable(symbol))
+        return evaluate()
+    }
+
+    func popOperand() -> Double? {
+        if !opStack.isEmpty {
+            opStack.removeLast()
+        }
         return evaluate()
     }
     

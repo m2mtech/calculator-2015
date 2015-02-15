@@ -104,6 +104,12 @@ class ViewController: UIViewController
             } else {
                 display.text = "0"
             }
+        } else {
+            if let result = brain.popOperand() {
+                displayValue = result
+            } else {
+                displayValue = nil
+            }
         }
     }
     
@@ -146,7 +152,7 @@ class ViewController: UIViewController
                 display.text = " "
             }
             userIsInTheMiddleOfTypingANumber = false
-            history.text = brain.description + " ="
+            history.text = brain.description != "" ? brain.description + " =" : ""
         }
     }
 }
