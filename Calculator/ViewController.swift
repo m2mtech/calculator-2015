@@ -149,7 +149,11 @@ class ViewController: UIViewController
                 numberFormatter.maximumFractionDigits = 10
                 display.text = numberFormatter.stringFromNumber(newValue!)
             } else {
-                display.text = " "
+                if let result = brain.evaluateAndReportErrors() as? String {
+                    display.text = result
+                } else {
+                    display.text = " "
+                }
             }
             userIsInTheMiddleOfTypingANumber = false
             history.text = brain.description != "" ? brain.description + " =" : ""
