@@ -22,6 +22,7 @@ class ViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         decimalButton.setTitle(decimalSeparator, forState: UIControlState.Normal)
+        display.text = " "
     }
     
     @IBAction func appendDigit(sender: UIButton) {
@@ -106,6 +107,31 @@ class ViewController: UIViewController
         }
     }
     
+    @IBAction func storeVariable(sender: UIButton) {
+        if let variable = last(sender.currentTitle!) {
+            if displayValue != nil {
+                brain.variableValues["\(variable)"] = displayValue
+                if let result = brain.evaluate() {
+                    displayValue = result
+                } else {
+                    displayValue = nil
+                }
+            }
+        }
+        userIsInTheMiddleOfTypingANumber = false
+    }
+    
+    @IBAction func pushVariable(sender: UIButton) {
+        if userIsInTheMiddleOfTypingANumber {
+            enter()
+        }
+        if let result = brain.pushOperand(sender.currentTitle!) {
+            displayValue = result
+        } else {
+            displayValue = nil
+        }
+    }
+    
     var displayValue: Double? {
         get {
             return NSNumberFormatter().numberFromString(display.text!)?.doubleValue
@@ -117,7 +143,7 @@ class ViewController: UIViewController
                 numberFormatter.maximumFractionDigits = 10
                 display.text = numberFormatter.stringFromNumber(newValue!)
             } else {
-                display.text = "0"
+                display.text = " "
             }
             userIsInTheMiddleOfTypingANumber = false
             history.text = brain.description + " ="
