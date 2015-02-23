@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B52A8F81A79022500D6D166 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B52A8F71A79022500D6D166 /* CalculatorBrain.swift */; };
+		5B77EEE11A9BCB7100CA4CC6 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B77EEE01A9BCB7100CA4CC6 /* GraphViewController.swift */; };
 		5B83AB8A1A76819000D713E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B83AB891A76819000D713E5 /* AppDelegate.swift */; };
 		5B83AB8C1A76819000D713E5 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B83AB8B1A76819000D713E5 /* CalculatorViewController.swift */; };
 		5B83AB8F1A76819000D713E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B83AB8D1A76819000D713E5 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		5B52A8F71A79022500D6D166 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
+		5B77EEE01A9BCB7100CA4CC6 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		5B83AB841A76819000D713E5 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B83AB881A76819000D713E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B83AB891A76819000D713E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,8 +85,10 @@
 			isa = PBXGroup;
 			children = (
 				5B83AB8B1A76819000D713E5 /* CalculatorViewController.swift */,
+				5B77EEE01A9BCB7100CA4CC6 /* GraphViewController.swift */,
 				5B52A8F71A79022500D6D166 /* CalculatorBrain.swift */,
 				5B83AB8D1A76819000D713E5 /* Main.storyboard */,
+				5B83AB901A76819000D713E5 /* Images.xcassets */,
 				5B83AB871A76819000D713E5 /* Supporting Files */,
 			);
 			path = Calculator;
@@ -94,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				5B83AB921A76819000D713E5 /* LaunchScreen.xib */,
-				5B83AB901A76819000D713E5 /* Images.xcassets */,
 				5B83AB891A76819000D713E5 /* AppDelegate.swift */,
 				5B83AB881A76819000D713E5 /* Info.plist */,
 			);
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B52A8F81A79022500D6D166 /* CalculatorBrain.swift in Sources */,
+				5B77EEE11A9BCB7100CA4CC6 /* GraphViewController.swift in Sources */,
 				5B83AB8C1A76819000D713E5 /* CalculatorViewController.swift in Sources */,
 				5B83AB8A1A76819000D713E5 /* AppDelegate.swift in Sources */,
 			);
