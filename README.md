@@ -7,6 +7,7 @@ written in Xcode 6.1.1 for iOS8.1+
 
 + [Project #3 Assignment #3 Task #2](http://cs193p.m2m.at/cs193p-project-3-assignment-3-task-2-winter-2015/) -> [project3assignment3task2](https://github.com/m2mtech/calculator-2015/tree/project3assignment3task2)
 
+===
 
 + [Project #2 Assignment #2 Extra Task #3](http://cs193p.m2m.at/cs193p-project-2-assignment-2-extra-task-3-winter-2015/) -> [project2assignment2extratask3](https://github.com/m2mtech/calculator-2015/tree/project2assignment2extratask3)
 + [Project #2 Assignment #2 Extra Task #2](http://cs193p.m2m.at/cs193p-project-2-assignment-2-extra-task-2-winter-2015/) -> [project2assignment2extratask2](https://github.com/m2mtech/calculator-2015/tree/project2assignment2extratask2)
