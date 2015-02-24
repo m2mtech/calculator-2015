@@ -14,10 +14,10 @@ class CalculatorViewController: UIViewController
     @IBOutlet weak var history: UILabel!
     @IBOutlet weak var decimalButton: UIButton!
     
-    var userIsInTheMiddleOfTypingANumber = false
-    let decimalSeparator = NSNumberFormatter().decimalSeparator!
+    private var userIsInTheMiddleOfTypingANumber = false
+    private let decimalSeparator = NSNumberFormatter().decimalSeparator!
     
-    var brain = CalculatorBrain()
+    private var brain = CalculatorBrain()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,7 +138,7 @@ class CalculatorViewController: UIViewController
         }
     }
     
-    var displayValue: Double? {
+    private var displayValue: Double? {
         get {
             return NSNumberFormatter().numberFromString(display.text!)?.doubleValue
         }
