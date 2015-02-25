@@ -224,8 +224,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdv-zT-V6Y">
-                                <rect key="frame" x="16" y="93" width="568" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Hdv-zT-V6Y">
+                                <rect key="frame" x="136" y="93" width="448" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -364,6 +364,7 @@
                             <constraint firstItem="QLw-XL-aZv" firstAttribute="top" secondItem="Hdv-zT-V6Y" secondAttribute="bottom" constant="8" id="bKS-jY-6Qh"/>
                             <constraint firstItem="2g4-wb-ekf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bQD-KQ-eNX"/>
                             <constraint firstItem="gOi-cv-yzb" firstAttribute="leading" secondItem="GTP-5B-DPL" secondAttribute="trailing" constant="8" id="bRP-Q3-63Z"/>
+                            <constraint firstItem="Hdv-zT-V6Y" firstAttribute="leading" secondItem="9I1-qt-e6V" secondAttribute="trailing" constant="8" id="bm7-3x-SPo"/>
                             <constraint firstItem="n3H-wX-98N" firstAttribute="width" secondItem="gOi-cv-yzb" secondAttribute="width" id="bn1-1K-Dcc"/>
                             <constraint firstItem="n3H-wX-98N" firstAttribute="width" secondItem="vce-Jq-6VC" secondAttribute="width" id="ccI-hg-7ze"/>
                             <constraint firstItem="n3H-wX-98N" firstAttribute="width" secondItem="MSe-Vk-Gmp" secondAttribute="width" id="dIV-ho-bSA"/>
@@ -412,6 +413,11 @@
                             <constraint firstItem="n3H-wX-98N" firstAttribute="height" secondItem="QLw-XL-aZv" secondAttribute="height" id="zsa-q7-bfS"/>
                             <constraint firstItem="n3H-wX-98N" firstAttribute="height" secondItem="bMp-RL-S8H" secondAttribute="height" id="ztz-md-Vz2"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="z7c-Uk-b7x"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Calculator" id="taG-5f-8Qk"/>
                     <connections>
@@ -422,6 +428,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="553" y="376"/>
         </scene>
         <!--Graph-->
         <scene sceneID="2GY-8z-08U">
@@ -487,7 +494,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhb-We-Q0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-185" y="1243"/>
+            <point key="canvasLocation" x="-180" y="1243"/>
         </scene>
     </scenes>
     <resources>
@@ -495,6 +502,6 @@
         <image name="graph-highlighted" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bMg-za-hOV"/>
+        <segue reference="h6W-AB-6Jg"/>
     </inferredMetricsTieBreakers>
 </document>
