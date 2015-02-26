@@ -51,6 +51,7 @@ class GraphView: UIView {
             point.x = CGFloat(i) / contentScaleFactor
             if let y = dataSource?.y((point.x - origin.x) / scale) {
                 if !y.isNormal && !y.isZero {
+                    firstValue = true
                     continue
                 }
                 point.y = origin.y - y * scale
@@ -60,6 +61,8 @@ class GraphView: UIView {
                 } else {
                     path.addLineToPoint(point)
                 }
+            } else {
+                firstValue = true                
             }
         }
         path.stroke()
