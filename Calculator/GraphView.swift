@@ -12,11 +12,12 @@ protocol GraphViewDataSource: class {
     func y(x: CGFloat) -> CGFloat?
 }
 
-
+@IBDesignable
 class GraphView: UIView {
 
     weak var dataSource: GraphViewDataSource?
     
+    @IBInspectable
     var scale: CGFloat = 50.0 { didSet { setNeedsDisplay() } }
     var origin: CGPoint = CGPoint() {
         didSet {
