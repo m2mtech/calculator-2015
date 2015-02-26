@@ -439,9 +439,21 @@
                         <viewControllerLayoutGuide type="bottom" id="ao8-h2-yEe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fWQ-Sh-BqF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Vwb-yF-Daj" customClass="GraphView" customModule="Calculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Vwb-yF-Daj" secondAttribute="trailing" id="8Pa-W9-7ah"/>
+                            <constraint firstItem="Vwb-yF-Daj" firstAttribute="leading" secondItem="fWQ-Sh-BqF" secondAttribute="leading" id="ZCI-S1-3yw"/>
+                            <constraint firstItem="Vwb-yF-Daj" firstAttribute="top" secondItem="fWQ-Sh-BqF" secondAttribute="top" id="lbD-hW-zfH"/>
+                            <constraint firstItem="Vwb-yF-Daj" firstAttribute="bottom" secondItem="ao8-h2-yEe" secondAttribute="top" id="vBo-Ok-doS"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Graph" id="Kdn-Pb-BIl"/>
                 </viewController>
