@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol GraphViewDataSource: class {
+    func y(x: CGFloat) -> CGFloat?
+}
+
+
 class GraphView: UIView {
 
+    weak var dataSource: GraphViewDataSource?
+    
     var scale: CGFloat = 50.0 { didSet { setNeedsDisplay() } }
     var origin: CGPoint = CGPoint() {
         didSet {
@@ -17,6 +24,9 @@ class GraphView: UIView {
             setNeedsDisplay()
         }
     }
+    var lineWidth: CGFloat = 1.0 { didSet { setNeedsDisplay() } }
+    var color: UIColor = UIColor.blackColor() { didSet { setNeedsDisplay() } }
+
     private var resetOrigin: Bool = true {
         didSet {
             if resetOrigin {
@@ -31,6 +41,28 @@ class GraphView: UIView {
         }
         AxesDrawer(contentScaleFactor: contentScaleFactor)
             .drawAxesInRect(bounds, origin: origin, pointsPerUnit: scale)
+        
+        color.set()
+        let path = UIBezierPath()
+        path.lineWidth = lineWidth
+        var firstValue = true
+        var point = CGPoint()
+        for var i = 0; i <= Int(bounds.size.width * contentScaleFactor); i++ {
+            point.x = CGFloat(i) / contentScaleFactor
+            if let y = dataSource?.y((point.x - origin.x) / scale) {
+                if !y.isNormal && !y.isZero {
+                    continue
+                }
+                point.y = origin.y - y * scale
+                if firstValue {
+                    path.moveToPoint(point)
+                    firstValue = false
+                } else {
+                    path.addLineToPoint(point)
+                }
+            }
+        }
+        path.stroke()
     }
 
 }
