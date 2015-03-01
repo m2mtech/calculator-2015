@@ -13,6 +13,11 @@ class GraphViewController: UIViewController, GraphViewDataSource
     @IBOutlet weak var graphView: GraphView! {
         didSet {
             graphView.dataSource = self
+            graphView.addGestureRecognizer(UIPinchGestureRecognizer(target: graphView, action: "zoom:"))
+            graphView.addGestureRecognizer(UIPanGestureRecognizer(target: graphView, action: "move:"))
+            var tap = UITapGestureRecognizer(target: graphView, action: "center:")
+            tap.numberOfTapsRequired = 2
+            graphView.addGestureRecognizer(tap)
         }
     }
     
