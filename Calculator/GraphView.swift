@@ -69,21 +69,49 @@ class GraphView: UIView {
         path.stroke()
     }
     
+    var snapshot:UIView?
+    
     func zoom(gesture: UIPinchGestureRecognizer) {
-        if gesture.state == .Changed {
-            scale *= gesture.scale
+        switch gesture.state {
+        case .Began:
+            snapshot = self.snapshotViewAfterScreenUpdates(false)
+            snapshot!.alpha = 0.8
+            self.addSubview(snapshot!)
+        case .Changed:
+            let touch = gesture.locationInView(self)
+            snapshot!.frame.size.height *= gesture.scale
+            snapshot!.frame.size.width *= gesture.scale
+            snapshot!.frame.origin.x = snapshot!.frame.origin.x * gesture.scale + (1 - gesture.scale) * touch.x
+            snapshot!.frame.origin.y = snapshot!.frame.origin.y * gesture.scale + (1 - gesture.scale) * touch.y
             gesture.scale = 1.0
+        case .Ended:
+            let changedScale = snapshot!.frame.height / self.frame.height
+            scale *= changedScale
+            origin.x = origin.x * changedScale + snapshot!.frame.origin.x
+            origin.y = origin.y * changedScale + snapshot!.frame.origin.y
+
+            snapshot!.removeFromSuperview()
+            snapshot = nil
+        default: break
         }
     }
 
     func move(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
-        case .Ended: fallthrough
+        case .Began:
+            snapshot = self.snapshotViewAfterScreenUpdates(false)
+            snapshot!.alpha = 0.8
+            self.addSubview(snapshot!)
         case .Changed:
             let translation = gesture.translationInView(self)
-            origin.x += translation.x
-            origin.y += translation.y
+            snapshot!.center.x += translation.x
+            snapshot!.center.y += translation.y
             gesture.setTranslation(CGPointZero, inView: self)
+        case .Ended:
+            origin.x += snapshot!.frame.origin.x
+            origin.y += snapshot!.frame.origin.y
+            snapshot!.removeFromSuperview()
+            snapshot = nil
         default: break
         }
     }
