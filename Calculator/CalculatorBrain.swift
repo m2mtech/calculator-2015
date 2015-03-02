@@ -67,8 +67,10 @@ class CalculatorBrain
         learnOp(Op.UnaryOperation("√", sqrt, { $0 < 0 ? "SQRT of Neg. Number" : nil }))
         learnOp(Op.UnaryOperation("sin", sin, nil))
         learnOp(Op.UnaryOperation("cos", cos, nil))
+        learnOp(Op.UnaryOperation("tan", tan, nil))
         learnOp(Op.UnaryOperation("±", { -$0 }, nil))
         learnOp(Op.NullaryOperation("π", { M_PI }))
+        learnOp(Op.NullaryOperation("e", { M_E }))
     }
     
     typealias PropertyList = AnyObject
