@@ -19,27 +19,37 @@ class GraphView: UIView {
     
     @IBInspectable
     var scale: CGFloat = 50.0 { didSet { setNeedsDisplay() } }
-    var origin: CGPoint = CGPoint() {
-        didSet {
-            resetOrigin = false
-            setNeedsDisplay()
+    var origin: CGPoint {
+        get {
+            var origin = originRelativeToCenter
+            if geometryReady {
+                origin.x += center.x
+                origin.y += center.y
+            }
+            return origin
+        }
+        set {
+            var origin = newValue
+            if geometryReady {
+                origin.x -= center.x
+                origin.y -= center.y
+            }
+            originRelativeToCenter = origin
         }
     }
     var lineWidth: CGFloat = 1.0 { didSet { setNeedsDisplay() } }
     var color: UIColor = UIColor.blackColor() { didSet { setNeedsDisplay() } }
 
-    private var resetOrigin: Bool = true {
-        didSet {
-            if resetOrigin {
-                setNeedsDisplay()                
-            }
-        }
-    }
-    
+    private var originRelativeToCenter: CGPoint = CGPoint() { didSet { setNeedsDisplay() } }
+    private var geometryReady = false
+
     override func drawRect(rect: CGRect) {
-        if resetOrigin {
-            origin = center
+        if !geometryReady && originRelativeToCenter != CGPointZero {
+            var originHelper = origin
+            geometryReady = true
+            origin = originHelper
         }
+
         AxesDrawer(contentScaleFactor: contentScaleFactor)
             .drawAxesInRect(bounds, origin: origin, pointsPerUnit: scale)
         
