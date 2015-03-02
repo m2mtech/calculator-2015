@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GraphViewController: UIViewController, GraphViewDataSource
+class GraphViewController: UIViewController, GraphViewDataSource, UIPopoverPresentationControllerDelegate
 {
     @IBOutlet weak var graphView: GraphView! {
         didSet {
@@ -19,6 +19,8 @@ class GraphViewController: UIViewController, GraphViewDataSource
             tap.numberOfTapsRequired = 2
             graphView.addGestureRecognizer(tap)
 
+            resetStatistics()
+            
             if !resetOrigin {
                 graphView.origin = origin
             }
@@ -29,6 +31,8 @@ class GraphViewController: UIViewController, GraphViewDataSource
     private struct Keys {
         static let Scale = "GraphViewController.Scale"
         static let Origin = "GraphViewController.Origin"
+        
+        static let SegueIdentifier = "Show Statistics"
     }
     
     private let defaults = NSUserDefaults.standardUserDefaults()
@@ -64,6 +68,7 @@ class GraphViewController: UIViewController, GraphViewDataSource
     func zoom(gesture: UIPinchGestureRecognizer) {
         graphView.zoom(gesture)
         if gesture.state == .Ended {
+            resetStatistics()
             scale = graphView.scale
             origin = graphView.origin
         }
@@ -72,6 +77,7 @@ class GraphViewController: UIViewController, GraphViewDataSource
     func move(gesture: UIPanGestureRecognizer) {
         graphView.move(gesture)
         if gesture.state == .Ended {
+            resetStatistics()
             origin = graphView.origin
         }
     }
@@ -79,6 +85,7 @@ class GraphViewController: UIViewController, GraphViewDataSource
     func center(gesture: UITapGestureRecognizer) {
         graphView.center(gesture)
         if gesture.state == .Ended {
+            resetStatistics()
             origin = graphView.origin
         }
     }
@@ -86,6 +93,24 @@ class GraphViewController: UIViewController, GraphViewDataSource
     func y(x: CGFloat) -> CGFloat? {
         brain.variableValues["M"] = Double(x)
         if let y = brain.evaluate() {
+            if let minValue = statistics["min"] {
+                statistics["min"] = min(minValue, y)
+            } else {
+                statistics["min"] = y
+            }
+            if let maxValue = statistics["max"] {
+                statistics["max"] = max(maxValue, y)
+            } else {
+                statistics["max"] = y
+            }
+            if let avgValue = statistics["avg"] {
+                statistics["avg"] = statistics["avg"]! + y
+                statistics["avgNum"] = statistics["avgNum"]! + 1
+            } else {
+                statistics["avg"] = y
+                statistics["avgNum"] = 1
+            }
+            
             return CGFloat(y)
         }
         return nil
@@ -101,5 +126,49 @@ class GraphViewController: UIViewController, GraphViewDataSource
             brain.program = newValue
         }
     }
+
+    private var statistics = [String: Double]()
+    private func resetStatistics() {
+        statistics["min"] = nil
+        statistics["max"] = nil
+        statistics["avg"] = nil
+    }
+
+    private func finishStatistics() {
+        if let num = statistics["avgNum"] {
+            if let avgValue = statistics["avg"] {
+                statistics["avg"] = avgValue / num
+                statistics["avgNum"] = nil
+            }
+        }
+    }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifer = segue.identifier {
+            switch identifer {
+            case Keys.SegueIdentifier:
+                if let tvc = segue.destinationViewController as? StatisticsViewController {
+                    if let ppc = tvc.popoverPresentationController {
+                        ppc.delegate = self
+                    }
+                    finishStatistics()
+                    var texts = [String]()
+                    for (key, value) in statistics {
+                        texts += ["\(key) = \(value)"]
+                    }
+                    tvc.text = texts.count > 0 ? "\n".join(texts) : "none"
+                }
+            default: break
+            }
+        }
+    }
+
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        resetStatistics()
+    }
 }

@@ -16,6 +16,7 @@
 		5B83AB941A76819000D713E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B83AB921A76819000D713E5 /* LaunchScreen.xib */; };
 		5B83ABA01A76819000D713E5 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B83AB9F1A76819000D713E5 /* CalculatorTests.swift */; };
 		5B908F2C1A8FAAB3002BFA3B /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B52A8F71A79022500D6D166 /* CalculatorBrain.swift */; };
+		5B9A1E6B1AA4B9B2003CFE1F /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A1E6A1AA4B9B2003CFE1F /* StatisticsViewController.swift */; };
 		5BE2C6831A9E6429009760CB /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2C6821A9E6429009760CB /* AxesDrawer.swift */; };
 		5BE2C6851A9E683E009760CB /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2C6841A9E683E009760CB /* GraphView.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		5B83AB9E1A76819000D713E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B83AB9F1A76819000D713E5 /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
 		5B83ABA91A76945A00D713E5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5B9A1E6A1AA4B9B2003CFE1F /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		5BE2C6821A9E6429009760CB /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxesDrawer.swift; sourceTree = "<group>"; };
 		5BE2C6841A9E683E009760CB /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 				5BE2C6821A9E6429009760CB /* AxesDrawer.swift */,
 				5BE2C6841A9E683E009760CB /* GraphView.swift */,
 				5B77EEE01A9BCB7100CA4CC6 /* GraphViewController.swift */,
+				5B9A1E6A1AA4B9B2003CFE1F /* StatisticsViewController.swift */,
 				5B83AB8D1A76819000D713E5 /* Main.storyboard */,
 				5B83AB901A76819000D713E5 /* Images.xcassets */,
 				5B83AB871A76819000D713E5 /* Supporting Files */,
@@ -233,6 +236,7 @@
 				5B83AB8C1A76819000D713E5 /* CalculatorViewController.swift in Sources */,
 				5B83AB8A1A76819000D713E5 /* AppDelegate.swift in Sources */,
 				5BE2C6851A9E683E009760CB /* GraphView.swift in Sources */,
+				5B9A1E6B1AA4B9B2003CFE1F /* StatisticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
