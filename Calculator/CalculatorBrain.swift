@@ -129,7 +129,7 @@ class CalculatorBrain
                     if op.precedence > operandEvaluation.precedence {
                         operand = "(\(operand))"
                     }
-                    return ("\(symbol)\(operand)", operandEvaluation.remainingOps, op.precedence)
+                    return ("\(symbol) \(operand)", operandEvaluation.remainingOps, op.precedence)
                 }
             case .BinaryOperation(let symbol, _, _, _):
                 let op1Evaluation = description(remainingOps)
@@ -138,7 +138,10 @@ class CalculatorBrain
                         operand1 = "(\(operand1))"
                     }
                     let op2Evaluation = description(op1Evaluation.remainingOps)
-                    if let operand2 = op2Evaluation.result {
+                    if var operand2 = op2Evaluation.result {
+                        if op.precedence > op2Evaluation.precedence {
+                            operand2 = "(\(operand2))"
+                        }
                         return ("\(operand2) \(symbol) \(operand1)",
                             op2Evaluation.remainingOps, op.precedence)
                     }
